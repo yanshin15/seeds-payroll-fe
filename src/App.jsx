@@ -9,7 +9,7 @@ function App() {
     <div className="h-full">
       <nav className="w-full h-{10%} shadow-md px-6 py-2 flex justify-center bg-lightcream">
         <Link to="/">
-          <img src={logo} alt="" loading="lazy" className="h-24" />
+          <img src={logo} alt="" loading="lazy" className="h-40" />
         </Link>
       </nav>
 
