@@ -25,10 +25,16 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className="bg-lightgreen px-4 w-full h-screen flex flex-col">
-      <button className=" bg-lightcream px-6 py-5 mt-2 rounded-md text-center self-center w-1/5 font-bold text-xl hover:bg-red-200">
-        + Add teacher
-      </button>
+    <div className="bg-white px-4 w-full h-full flex flex-col">
+      <span className="flex justify-center gap-8 p-2 max-md:flex-col">
+        <button className="px-8 py-5 mt-4 rounded-xl text-center w-1/4 max-md:w-full max-h-24 font-bold text-white text-xl bg-seedsbrown hover:bg-darkbrown">
+          Add teacher
+        </button>
+        <button className="px-8 py-5 mt-4 rounded-xl text-center w-1/4 max-md:w-full  max-h-24 font-bold text-white text-xl bg-seedsbrown hover:bg-darkbrown">
+          Payroll
+        </button>
+      </span>
+
       <div className=" grid lg:grid-cols-2 md:grid-cols-1 gap-8 mt-4">
         {products.map((product) => {
           return (
@@ -38,14 +44,14 @@ const HomePage = () => {
               <h2>{product.rate}</h2>
               <h2>{product.rate}</h2>
 
-              <span className="flex gap-2 items-center px-2 justify-between w-full">
+              <span className="flex gap-8 items-center px-2 justify-between w-full pt-4">
                 <Link
                   to="/edit"
-                  className="text-center w-1/2 bg-darkgreen px-4 py-2 rounded-md hover:bg-lightgreen text-white"
+                  className="text-center w-1/2 bg-darkgreen px-4 py-2 rounded-lg hover:bg-seedsgreen text-white"
                 >
                   Edit
                 </Link>
-                <button className="w-1/2 text-center bg-red-500 px-4 py-2 rounded-md text-white hover:bg-red-400">
+                <button className="w-1/2 text-center bg-pastelred px-4 py-2 rounded-lg text-white hover:bg-red-500">
                   Delete
                 </button>
               </span>

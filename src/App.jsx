@@ -6,15 +6,10 @@ import logo from "./assets/seedslogo.jpg";
 
 function App() {
   return (
-    <div className="h-screen">
-      <nav className="w-full h-auto shadow-md px-4 py-2 rounded-lg bg-lightcream lg:block md:block sm:flex sm:justify-center">
+    <div className="h-full">
+      <nav className="w-full h-{10%} shadow-md px-6 py-2 flex justify-center bg-lightcream">
         <Link to="/">
-          <img
-            src={logo}
-            alt=""
-            loading="lazy"
-            className="h-20 bg-transparent w-auto"
-          />
+          <img src={logo} alt="" loading="lazy" className="h-24" />
         </Link>
       </nav>
 
