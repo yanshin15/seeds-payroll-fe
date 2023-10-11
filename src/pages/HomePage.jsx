@@ -27,10 +27,10 @@ const HomePage = () => {
   return (
     <div className="bg-white px-4 w-full h-full flex flex-col">
       <span className="flex justify-center gap-8 p-2 max-md:flex-col  ">
-        <button className="px-8 py-5 mt-4 rounded-xl text-center w-1/4 max-md:w-full max-h-24 font-bold shadow-lg text-white text-xl bg-seedsbrown hover:bg-darkbrown">
+        <button className="duration-200 px-8 py-5 mt-4 rounded-xl text-center w-1/4 max-md:w-full max-h-24 font-bold shadow-lg text-white text-xl bg-seedsbrown hover:bg-darkbrown">
           + Add teacher
         </button>
-        <button className="px-8 py-5 mt-4 rounded-xl text-center w-1/4 max-md:w-full  max-h-24 font-bold shadow-lg text-white text-xl bg-seedsbrown hover:bg-darkbrown">
+        <button className="duration-200 px-8 py-5 mt-4 rounded-xl text-center w-1/4 max-md:w-full  max-h-24 font-bold shadow-lg text-white text-xl bg-seedsbrown hover:bg-darkbrown">
           Payroll
         </button>
       </span>
@@ -47,11 +47,11 @@ const HomePage = () => {
               <span className="flex gap-8 items-center px-2 justify-between w-full pt-4">
                 <Link
                   to="/edit"
-                  className="text-center w-1/2 font-semibold bg-darkgreen px-4 py-2 rounded-lg hover:bg-seedsgreen text-white"
+                  className="duration-200 text-center w-1/2 font-semibold bg-darkgreen px-4 py-2 rounded-lg hover:bg-seedsgreen text-white"
                 >
                   Edit
                 </Link>
-                <button className="w-1/2 text-center font-semibold bg-pastelred px-4 py-2 rounded-lg text-white hover:bg-red-500">
+                <button className="duration-200 w-1/2 text-center font-semibold bg-pastelred px-4 py-2 rounded-lg text-white hover:bg-red-500">
                   Delete
                 </button>
               </span>
