@@ -26,7 +26,7 @@ const HomePage = () => {
 
   return (
     <div className="bg-white px-4 w-full h-full flex flex-col">
-      <span className="flex justify-center gap-8 p-2 max-md:flex-col">
+      <span className="flex justify-center gap-8 p-2 max-md:flex-col  ">
         <button className="px-8 py-5 mt-4 rounded-xl text-center w-1/4 max-md:w-full max-h-24 font-bold shadow-lg text-white text-xl bg-seedsbrown hover:bg-darkbrown">
           + Add teacher
         </button>
@@ -35,7 +35,7 @@ const HomePage = () => {
         </button>
       </span>
 
-      <div className=" grid lg:grid-cols-2 md:grid-cols-1 gap-8 mt-4">
+      <div className=" grid lg:grid-cols-2 md:grid-cols-1 gap-8 mt-4 select-none">
         {products.map((product) => {
           return (
             <div className="shadow-xl rounded-xl bg-lightcream p-8 flex items-center justify-center flex-col gap-2">
