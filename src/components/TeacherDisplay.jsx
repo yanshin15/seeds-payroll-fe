@@ -4,15 +4,27 @@ import { faClock, faDollarSign } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 const TeacherDisplay = ({ teacher, getTeachers }) => {
   const deleteTeacher = async (id) => {
-    try {
-      await axios.delete(`http://localhost:5038/api/teachers/${id}`);
-      toast.success(`Tr ${teacher.name} has been deleted.`);
-      await getTeachers();
-    } catch (error) {
-      console.log(error);
+    const result = await Swal.fire({
+      title: "Are you sure you want to delete the teacher?",
+      text: "You won't be able to revert this!",
+      icon: "error",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Yes, delete it!",
+    });
+    if (result.isConfirmed) {
+      try {
+        await axios.delete(`http://localhost:5038/api/teachers/${id}`);
+        toast.success(`Tr ${teacher.name} has been deleted.`);
+        await getTeachers();
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
   return (
