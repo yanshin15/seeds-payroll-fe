@@ -33,7 +33,7 @@ const CreatePage = () => {
     <section className="bg-white px-4 w-full h-screen flex flex-col items-center p-5">
       <form
         onSubmit={saveTeachers}
-        className="shadow-xl rounded-xl bg-lightcream p-8 text-2xl items-center w-2/5 h-auto flex flex-col gap-4"
+        className="shadow-xl rounded-xl bg-lightcream p-8 text-2xl items-center md:w-3/5 lg:w-2/5 h-auto flex flex-col gap-4"
       >
         <h1 className="text-darkbrown text-3xl font-bold mb-6">
           Add a Teacher

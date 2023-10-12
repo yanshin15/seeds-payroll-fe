@@ -53,7 +53,7 @@ const EditPage = () => {
     <section className="bg-white px-4 w-full h-screen flex flex-col items-center p-5">
       <form
         onSubmit={updateTeacher}
-        className="shadow-xl rounded-xl bg-lightcream p-8 text-2xl items-center w-2/5 h-auto flex flex-col gap-4"
+        className="shadow-xl rounded-xl bg-lightcream p-8 text-2xl items-center  md:w-3/5 lg:w-2/5 h-auto flex flex-col gap-4"
       >
         <h1 className="text-darkbrown text-3xl font-bold mb-6">
           Edit Teacher Details
@@ -111,11 +111,11 @@ const EditPage = () => {
         />
         {isLoading ? (
           <button className="duration-200 text-center w-3/4 font-semibold  bg-darkgreen px-4 py-2 rounded-lg hover:bg-seedsgreen text-white mt-12 cursor-not-allowed">
-            Add
+            Edit
           </button>
         ) : (
           <button className="duration-200 text-center w-3/4 font-semibold  bg-darkgreen px-4 py-2 rounded-lg hover:bg-seedsgreen text-white mt-12">
-            Add
+            Edit
           </button>
         )}
       </form>
