@@ -1,4 +1,6 @@
 import { Link, Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import HomePage from "./pages/HomePage";
 import CreatePage from "./pages/CreatePage";
@@ -24,6 +26,7 @@ function App() {
         <Route path="/create" element={<CreatePage />}></Route>
         <Route path="/edit/:id" element={<EditPage />}></Route>
       </Routes>
+      <ToastContainer />
     </div>
   );
 }

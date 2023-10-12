@@ -29,7 +29,7 @@ const HomePage = () => {
     <div className=" bg-lightcream px-4 w-full h-full flex flex-col">
       {isLoading ? (
         <div className="flex justify-center items-center h-screen text-2xl font-bold">
-          "Loading Teachers..."
+          Loading Teachers...
         </div>
       ) : (
         <>

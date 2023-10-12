@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const EditPage = () => {
   const [teacher, setTeacher] = useState({
@@ -26,7 +27,6 @@ const EditPage = () => {
         rate: response.data.rate,
         hours_worked: response.data.hours_worked,
       });
-      console.log(teacher);
     } catch (error) {
       console.log(error);
     }
@@ -38,7 +38,7 @@ const EditPage = () => {
     try {
       await axios.put(`http://localhost:5038/api/teachers/${id}`, teacher);
       setIsLoading(false);
-      alert(`Updated Tr ${teacher.name}'s details successfully`);
+      toast.success(`Updated Tr ${teacher.name}'s details successfully`);
       navigate("/");
     } catch (error) {
       console.log(error);

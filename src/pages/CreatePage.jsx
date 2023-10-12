@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const CreatePage = () => {
   const [name, setName] = useState("");
@@ -12,7 +13,7 @@ const CreatePage = () => {
   const saveTeachers = async (e) => {
     e.preventDefault();
     if (!name || !subject || !rate) {
-      alert("Please fill out all fields");
+      toast.error("Please fill out all fields");
       return;
     }
     try {
@@ -21,7 +22,7 @@ const CreatePage = () => {
         "http://localhost:5038/api/teachers/add",
         { name: name, subject: subject, rate: rate }
       );
-      alert(`Teacher ${name} has been added successfully.`);
+      toast.success(`Teacher ${name} has been added successfully.`);
       setIsLoading(false);
       navigate("/");
     } catch (error) {

@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 import { faClock, faDollarSign } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const TeacherDisplay = ({ teacher, getTeachers }) => {
   const deleteTeacher = async (id) => {
     try {
       await axios.delete(`http://localhost:5038/api/teachers/${id}`);
-      alert(`Tr ${teacher.name} has been deleted.`);
+      toast.success(`Tr ${teacher.name} has been deleted.`);
       await getTeachers();
     } catch (error) {
       console.log(error);
