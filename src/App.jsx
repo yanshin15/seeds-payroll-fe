@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import HomePage from "./pages/HomePage";
 import CreatePage from "./pages/CreatePage";
 import EditPage from "./pages/EditPage";
+import PayrollPage from "./pages/PayrollPage";
 import logo from "./assets/seedslogo.jpg";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route index path="/" element={<HomePage />}></Route>
         <Route path="/create" element={<CreatePage />}></Route>
         <Route path="/edit/:id" element={<EditPage />}></Route>
+        <Route path="/payroll" element={<PayrollPage />}></Route>
       </Routes>
       <ToastContainer />
     </div>

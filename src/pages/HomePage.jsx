@@ -41,7 +41,7 @@ const HomePage = () => {
               />
             </Link>
 
-            <Link to={"/create"}>
+            <Link to={"/payroll"}>
               <FontAwesomeIcon
                 icon={faSackDollar}
                 className="h-8 text-darkbrown hover:scale-105 hover:text-seedsbrown duration-200"
