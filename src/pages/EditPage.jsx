@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const EditPage = () => {
   const [teacher, setTeacher] = useState({
@@ -10,6 +10,7 @@ const EditPage = () => {
     hours_worked: "",
   });
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   let { id } = useParams();
   const getTeacher = async () => {
@@ -18,6 +19,7 @@ const EditPage = () => {
       const response = await axios.get(
         `http://localhost:5038/api/teachers/${id}`
       );
+      setIsLoading(false);
       setTeacher({
         name: response.data.name,
         subject: response.data.subject,
@@ -30,6 +32,19 @@ const EditPage = () => {
     }
   };
 
+  const updateTeacher = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    try {
+      await axios.put(`http://localhost:5038/api/teachers/${id}`, teacher);
+      setIsLoading(false);
+      alert(`Updated Tr ${teacher.name}'s details successfully`);
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     getTeacher();
   }, []);
@@ -37,11 +52,11 @@ const EditPage = () => {
   return (
     <section className="bg-white px-4 w-full h-screen flex flex-col items-center p-5">
       <form
-        // onSubmit={saveTeachers}
+        onSubmit={updateTeacher}
         className="shadow-xl rounded-xl bg-lightcream p-8 text-2xl items-center w-2/5 h-auto flex flex-col gap-4"
       >
         <h1 className="text-darkbrown text-3xl font-bold mb-6">
-          Add a Teacher
+          Edit Teacher Details
         </h1>
         <span className="w-3/4">
           <label className="self-start w-4/5">Name</label>
@@ -52,9 +67,9 @@ const EditPage = () => {
           type="text"
           className="w-3/4 h-12 px-8 py-4 rounded-2xl shadow "
           placeholder="Enter Name"
-          // onChange={(e) => {
-          //   setName(e.target.value);
-          // }}
+          onChange={(e) => {
+            setTeacher({ ...teacher, name: e.target.value });
+          }}
         />
         <span className="w-3/4">
           <label>Subject</label>
@@ -62,9 +77,9 @@ const EditPage = () => {
 
         <input
           value={teacher.subject}
-          // onChange={(e) => {
-          //   setSubject(e.target.value);
-          // }}
+          onChange={(e) => {
+            setTeacher({ ...teacher, subject: e.target.value });
+          }}
           type="text"
           className="w-3/4 h-12 px-8 py-4 rounded-2xl shadow"
           placeholder="Enter Subject"
@@ -75,9 +90,9 @@ const EditPage = () => {
 
         <input
           value={teacher.rate}
-          // onChange={(e) => {
-          //   setRate(e.target.value);
-          // }}
+          onChange={(e) => {
+            setTeacher({ ...teacher, rate: e.target.value });
+          }}
           type="number"
           className="w-3/4 h-12 px-8 py-4 rounded-2xl shadow"
           placeholder="Enter Rate"
@@ -87,9 +102,9 @@ const EditPage = () => {
         </span>
         <input
           value={teacher.hours_worked}
-          // onChange={(e) => {
-          //   setRate(e.target.value);
-          // }}
+          onChange={(e) => {
+            setTeacher({ ...teacher, hours_worked: e.target.value });
+          }}
           type="number"
           className="w-3/4 h-12 px-8 py-4 rounded-2xl shadow"
           placeholder="Enter Rate"
