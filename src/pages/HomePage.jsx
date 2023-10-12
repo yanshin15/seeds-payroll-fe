@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { faMoneyBill1 } from "@fortawesome/free-solid-svg-icons";
+import { faMoneyBill1, faSackDollar } from "@fortawesome/free-solid-svg-icons";
 import { faSquarePlus } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import TeacherDisplay from "../components/TeacherDisplay";
@@ -43,8 +43,8 @@ const HomePage = () => {
 
             <Link to={"/create"}>
               <FontAwesomeIcon
-                icon={faMoneyBill1}
-                className="h-9 text-darkbrown hover:scale-105 hover:text-seedsbrown duration-200"
+                icon={faSackDollar}
+                className="h-8 text-darkbrown hover:scale-105 hover:text-seedsbrown duration-200"
               />
             </Link>
           </span>

@@ -1,6 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { faClock, faDollarSign } from "@fortawesome/free-solid-svg-icons";
+import {
+  faClock,
+  faSackDollar,
+  faHourglassHalf,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -33,7 +37,10 @@ const TeacherDisplay = ({ teacher, getTeachers }) => {
       <h2 className="text-xl font-semilight">{teacher.subject}</h2>
       <span className="flex items-center gap-4 justify-around">
         <h2 className="font-semibold text-lg flex gap-1 items-center">
-          <FontAwesomeIcon icon={faDollarSign} className="h-4 text-darkbrown" />
+          <FontAwesomeIcon
+            icon={faHourglassHalf}
+            className="h-5 text-darkbrown"
+          />
           {teacher.rate} ks/hour
         </h2>
         <h2 className="font-semibold text-lg flex gap-1 items-center">
