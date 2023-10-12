@@ -1,4 +1,5 @@
 import { Link, Route, Routes } from "react-router-dom";
+
 import HomePage from "./pages/HomePage";
 import CreatePage from "./pages/CreatePage";
 import EditPage from "./pages/EditPage";
@@ -7,7 +8,7 @@ import logo from "./assets/seedslogo.jpg";
 function App() {
   return (
     <div className="h-full">
-      <nav className="w-full h-{10%} shadow-md px-6 py-2 flex justify-center bg-lightcream">
+      <nav className="w-full h-{10%} shadow-md px-6 py-2 flex justify-center bg-lightcream  ">
         <Link to="/">
           <img
             src={logo}

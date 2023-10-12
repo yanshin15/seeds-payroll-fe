@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import EditPage from "./EditPage";
+import {
+  faCirclePlus,
+  faHandHoldingDollar,
+  faSackDollar,
+  faMoneyBill1,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import TeacherDisplay from "../components/TeacherDisplay";
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
@@ -25,38 +32,25 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className="bg-white px-4 w-full h-full flex flex-col">
-      <span className="flex justify-center gap-8 p-2 max-md:flex-col  ">
-        <button className="duration-200 px-8 py-5 mt-4 rounded-xl text-center w-1/4 max-md:w-full max-h-24 font-bold shadow-lg text-white text-xl bg-seedsbrown hover:bg-darkbrown">
-          + Add teacher
-        </button>
-        <button className="duration-200 px-8 py-5 mt-4 rounded-xl text-center w-1/4 max-md:w-full  max-h-24 font-bold shadow-lg text-white text-xl bg-seedsbrown hover:bg-darkbrown">
-          Payroll
-        </button>
-      </span>
+    <div className=" bg-lightcream px-4 w-full h-full flex flex-col">
+      <span className="flex justify-between gap-8 p-2 max-md:flex-col px-6">
+        <Link to="/create">
+          <FontAwesomeIcon
+            icon={faCirclePlus}
+            className="h-10 text-darkbrown hover:scale-105 hover:text-seedsbrown duration-200"
+          />
+        </Link>
 
+        <Link to="/create">
+          <FontAwesomeIcon
+            icon={faMoneyBill1}
+            className="h-10 text-darkbrown hover:scale-105 hover:text-seedsbrown duration-200"
+          />
+        </Link>
+      </span>
       <div className=" grid lg:grid-cols-2 md:grid-cols-1 gap-8 mt-4 select-none">
         {products.map((product) => {
-          return (
-            <div className="shadow-xl rounded-xl bg-lightcream p-8 flex items-center justify-center flex-col gap-2">
-              <h1>{product.name}</h1>
-              <h2>{product.rate}</h2>
-              <h2>{product.rate}</h2>
-              <h2>{product.rate}</h2>
-
-              <span className="flex gap-8 items-center px-2 justify-between w-full pt-4">
-                <Link
-                  to="/edit"
-                  className="duration-200 text-center w-1/2 font-semibold bg-darkgreen px-4 py-2 rounded-lg hover:bg-seedsgreen text-white"
-                >
-                  Edit
-                </Link>
-                <button className="duration-200 w-1/2 text-center font-semibold bg-pastelred px-4 py-2 rounded-lg text-white hover:bg-red-500">
-                  Delete
-                </button>
-              </span>
-            </div>
-          );
+          return <TeacherDisplay product={product} />;
         })}
       </div>
     </div>
