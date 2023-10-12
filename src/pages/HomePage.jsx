@@ -10,7 +10,7 @@ const HomePage = () => {
   const [teachers, setTeachers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const getProducts = async () => {
+  const getTeachers = async () => {
     try {
       setIsLoading(true);
       const response = await axios.get("http://localhost:5038/api/teachers/");
@@ -22,7 +22,7 @@ const HomePage = () => {
   };
 
   useEffect(() => {
-    getProducts();
+    getTeachers();
   }, []);
 
   return (
@@ -50,7 +50,9 @@ const HomePage = () => {
           </span>
           <div className=" grid lg:grid-cols-2 md:grid-cols-1 gap-8 mt-4 mb-4 select-none">
             {teachers.map((teacher) => {
-              return <TeacherDisplay teacher={teacher} />;
+              return (
+                <TeacherDisplay teacher={teacher} getTeachers={getTeachers} />
+              );
             })}
           </div>
         </>

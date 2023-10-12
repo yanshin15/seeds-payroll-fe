@@ -2,8 +2,18 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { faClock, faDollarSign } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import axios from "axios";
 
-const TeacherDisplay = ({ teacher: teacher }) => {
+const TeacherDisplay = ({ teacher, getTeachers }) => {
+  const deleteTeacher = async (id) => {
+    try {
+      await axios.delete(`http://localhost:5038/api/teachers/${id}`);
+      alert(`Tr ${teacher.name} has been deleted.`);
+      await getTeachers();
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <section className="shadow-xl rounded-xl bg-white p-8 flex items-center justify-center flex-col gap-2">
       <h1 className="text-2xl font-bold text-darkbrown">Tr. {teacher.name}</h1>
@@ -26,7 +36,10 @@ const TeacherDisplay = ({ teacher: teacher }) => {
         >
           Edit
         </Link>
-        <button className="duration-200 w-1/2 text-center font-semibold bg-pastelred px-4 py-2 rounded-lg text-white hover:bg-red-500">
+        <button
+          onClick={() => deleteTeacher(teacher._id)}
+          className="duration-200 w-1/2 text-center font-semibold bg-pastelred px-4 py-2 rounded-lg text-white hover:bg-red-500"
+        >
           Delete
         </button>
       </div>
