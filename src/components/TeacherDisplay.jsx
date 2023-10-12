@@ -3,25 +3,25 @@ import { Link } from "react-router-dom";
 import { faClock, faDollarSign } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const TeacherDisplay = ({ product }) => {
+const TeacherDisplay = ({ teacher: teacher }) => {
   return (
     <section className="shadow-xl rounded-xl bg-white p-8 flex items-center justify-center flex-col gap-2">
-      <h1 className="text-2xl font-bold text-darkbrown">{product.name}</h1>
-      <h2 className="text-xl font-semilight">{product.subject}</h2>
+      <h1 className="text-2xl font-bold text-darkbrown">{teacher.name}</h1>
+      <h2 className="text-xl font-semilight">{teacher.subject}</h2>
       <span className="flex items-center gap-4 justify-around">
         <h2 className="font-semibold text-lg flex gap-1 items-center">
           <FontAwesomeIcon icon={faDollarSign} className="h-4 text-darkbrown" />
-          {product.rate} ks/hour
+          {teacher.rate} ks/hour
         </h2>
         <h2 className="font-semibold text-lg flex gap-1 items-center">
           <FontAwesomeIcon icon={faClock} className="h-4 text-darkbrown" />
-          {product.hours_worked} hrs
+          {teacher.hours_worked} hrs
         </h2>
       </span>
 
       <div className="flex gap-8 items-center px-2 justify-between w-full pt-4">
         <Link
-          to="/edit"
+          to={`/edit/${teacher._id}`}
           className="duration-200 text-center w-1/2 font-semibold  bg-darkgreen px-4 py-2 rounded-lg hover:bg-seedsgreen text-white"
         >
           Edit

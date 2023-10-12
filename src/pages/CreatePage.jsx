@@ -21,7 +21,8 @@ const CreatePage = () => {
         "http://localhost:5038/api/teachers/add",
         { name: name, subject: subject, rate: rate }
       );
-      alert(`Saved Teacher ${response.data.name} successfully.`);
+      alert(`Teacher ${name} has been added successfully.`);
+      setIsLoading(false);
       navigate("/");
     } catch (error) {
       console.log(error);
@@ -72,7 +73,7 @@ const CreatePage = () => {
           onChange={(e) => {
             setRate(e.target.value);
           }}
-          type="text"
+          type="number"
           className="w-3/4 h-12 px-8 py-4 rounded-2xl shadow"
           placeholder="Enter Rate"
         />
