@@ -7,6 +7,7 @@ const CreatePage = () => {
   const [name, setName] = useState("");
   const [subject, setSubject] = useState("");
   const [rate, setRate] = useState();
+  const [classType, setClassType] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -20,7 +21,7 @@ const CreatePage = () => {
       setIsLoading(true);
       const response = await axios.post(
         "http://localhost:5038/api/teachers/add",
-        { name: name, subject: subject, rate: rate }
+        { name: name, subject: subject, rate: rate, class_type: classType }
       );
       toast.success(`Teacher ${name} has been added successfully.`);
       setIsLoading(false);
@@ -78,6 +79,19 @@ const CreatePage = () => {
           className="w-3/4 h-12 px-8 py-4 rounded-2xl shadow"
           placeholder="Enter Rate"
         />
+        <span className="w-3/4">
+          <label>Class Type</label>
+        </span>
+        <select
+          onChange={(e) => {
+            setClassType(e.target.value);
+          }}
+          className="w-3/4 py-2 px-8 pr-4 shadow h-auto rounded-2xl text-start text-gray-400"
+        >
+          <option value="Online">Online</option>
+          <option value="On-site">On-site</option>
+        </select>
+        {console.log(classType)}
         {isLoading ? (
           <button className="duration-200 text-center w-3/4 font-semibold  bg-darkgreen px-4 py-2 rounded-lg hover:bg-seedsgreen text-white mt-12 cursor-not-allowed">
             Add

@@ -22,7 +22,7 @@ const PayrollPage = () => {
   }, []);
   return teachers.map((teacher) => {
     return (
-      <section className="flex w-full items-center p-5 flex-col">
+      <section className="flex w-full items-center flex-col">
         <div className="w-3/4 justify-center h-20 bg-lightcream grid grid-cols-2 border">
           <h1 className="border border-black p-2">{teacher.name}</h1>
           <h1 className="border border-black p-2">{teacher.payroll}</h1>

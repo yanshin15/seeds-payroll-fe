@@ -4,6 +4,7 @@ import {
   faClock,
   faSackDollar,
   faHourglassHalf,
+  faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
@@ -33,8 +34,15 @@ const TeacherDisplay = ({ teacher, getTeachers }) => {
   };
   return (
     <section className="shadow-xl rounded-xl bg-white p-8 flex items-center justify-center flex-col gap-2">
-      <h1 className="text-2xl font-bold text-darkbrown">Tr. {teacher.name}</h1>
-      <h2 className="text-xl font-semilight">{teacher.subject}</h2>
+      <h1 className="text-2xl font-bold text-darkbrown text-center">
+        Tr. {teacher.name}
+      </h1>
+      <h2 className="text-xl font-semilight text-center">
+        {teacher.subject}
+        <h1 className="text-xl font-semibold text-center">
+          {teacher.class_type}
+        </h1>
+      </h2>
       <span className="flex items-center gap-4 justify-around">
         <h2 className="font-semibold text-lg flex gap-1 items-center">
           <FontAwesomeIcon
