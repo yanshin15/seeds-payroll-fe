@@ -7,7 +7,7 @@ const CreatePage = () => {
   const [name, setName] = useState("");
   const [subject, setSubject] = useState("");
   const [rate, setRate] = useState();
-  const [classType, setClassType] = useState();
+  const [classType, setClassType] = useState("On-site");
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -83,6 +83,7 @@ const CreatePage = () => {
           <label>Class Type</label>
         </span>
         <select
+          value={classType}
           onChange={(e) => {
             setClassType(e.target.value);
           }}

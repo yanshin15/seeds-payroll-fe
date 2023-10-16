@@ -9,8 +9,10 @@ const EditPage = () => {
     subject: "",
     rate: "",
     hours_worked: "",
+    classType: "",
   });
   const [isLoading, setIsLoading] = useState(false);
+  const [classType, setClassType] = useState();
   const navigate = useNavigate();
 
   let { id } = useParams();
@@ -21,11 +23,13 @@ const EditPage = () => {
         `http://localhost:5038/api/teachers/${id}`
       );
       setIsLoading(false);
+      setClassType(response.data.class_type);
       setTeacher({
         name: response.data.name,
         subject: response.data.subject,
         rate: response.data.rate,
         hours_worked: response.data.hours_worked,
+        classType: response.data.class_type,
       });
     } catch (error) {
       console.log(error);
@@ -109,6 +113,20 @@ const EditPage = () => {
           className="w-3/4 h-12 px-8 py-4 rounded-2xl shadow"
           placeholder="Enter Rate"
         />
+        <span className="w-3/4">
+          <label>Class Type</label>
+        </span>
+        <select
+          value={classType}
+          onChange={(e) => {
+            setClassType(e.target.value);
+            setTeacher({ ...teacher, class_type: e.target.value });
+          }}
+          className="w-3/4 py-2 px-8 pr-4 shadow h-auto rounded-2xl text-start text-gray-400"
+        >
+          <option value="Online">Online</option>
+          <option value="On-site">On-site</option>
+        </select>
         {isLoading ? (
           <button className="duration-200 text-center w-3/4 font-semibold  bg-darkgreen px-4 py-2 rounded-lg hover:bg-seedsgreen text-white mt-12 cursor-not-allowed">
             Edit
