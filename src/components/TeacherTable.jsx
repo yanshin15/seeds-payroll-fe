@@ -26,7 +26,7 @@ const TeacherTable = ({ teachers }) => {
   return (
     <section className="flex justify-center">
       <div
-        className="ag-theme-material bg-center border rounded-md shadow-lg md:w-full"
+        className="ag-theme-material bg-center border rounded-md shadow-lg md:w-full text-sm md:text-xl"
         style={{ height: "50vh", width: "60%" }}
       >
         <AgGridReact
